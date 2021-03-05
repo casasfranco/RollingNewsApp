@@ -1,0 +1,55 @@
+{
+  "noticia": [
+    {
+      "volantaNoticia": "El Bitcoin tocó los US$37.400 luego de escalar US$5000 en pocos minutos",
+      "tituloPrincipalNoticia": "Bitcoin. Cómo Elon Musk, con una sola palabra, disparó el valor de la criptomoneda",
+      "copeteNoticia": "El Bitcoin tocó los US$37.400 luego de escalar US$5000 en pocos minutos",
+      "urlImgPrincipalNoticia": "",
+      "cuerpoNoticia": "Una palabra le bastó al multimillanario Elon Musk para desatar la nueva fiebre en los mercados internacionales por el bitcoin. Luego de que el creador de Tesla y SpaceX cambió la descripción en su perfil en Twitter con el nombre de la criptomoneda, el valor se disparó con un alza de US$5000 en una hora.\n\nLos inversores y financistas que apuestan a las divisas virtuales vieron en la acción del empresario un fuerte respaldo que hizo escalar su valor. El bitcoin vive en las últimas semanas una suerte de verano económico y cada vez son más personas las que invierten en el activo digital de alta volatilidad.",
+      "urlImgOpcionalNoticia": "",
+      "autorNoticia": "juan perez",
+      "categoriaNoticia": "actualidad",
+      "fechaNoticia": "22/02/2120",
+      "id": 18
+    },
+    {
+      "volantaNoticia": "El incremento estará sujeto a la devolución de cobros indebidos ",
+      "tituloPrincipalNoticia": "Telefonía móvil: el Gobierno autorizó un nuevo aumento",
+      "copeteNoticia": "telefonía móvil se resolvió aplicar un nuevo aumento entre los meses de febrero",
+      "urlImgPrincipalNoticia": "https://img.lagaceta.com.ar/fotos/notas/2020/10/18/865284_202010171657240000001.jpg",
+      "cuerpoNoticia": "Tras negociaciones entre el Gobierno Nacional y  representantes de las empresas de telefonía móvil se resolvió aplicar un nuevo aumento entre los meses de febrero y marzo. De este modo, se autorizaron ajustes de precio del 7,5% y 2,5% respectivamente.\n\n\ngociaciones entre el Gobierno Nacional y  representantes de las empresas de telefonía móvil se resolvió aplicar un nuevo aumento entre los meses de febrero y marzo. De este modo, se autorizaron ajustes de precio del 7,5% y 2,5% respectivamente.",
+      "urlImgOpcionalNoticia": "https://img.lagaceta.com.ar/fotos/notas/2021/02/20/telefonia-movil-gobierno-autorizo-nuevo-aumento-881309-165754.jpg",
+      "categoriaNoticia": "economia",
+      "fechaNoticia": "20/02/2021",
+      "autorNoticia": "romeo granara",
+      "tipoNoticia": "destacada",
+      "id": 19
+    },
+    {
+      "volantaNoticia": "cuidados a tener en cuenta ",
+      "tituloPrincipalNoticia": "Punto por punto: cómo entrar en el mundo del Bitcoin sin ser estafado",
+      "copeteNoticia": "A medida que crece el valor del Bitcoin hay más interesados en comprar, pero distintos referentes señalan una serie de cuidados a tener en cuenta",
+      "urlImgPrincipalNoticia": "",
+      "cuerpoNoticia": "En los últimos años la moneda digital Bitcoin pasó de ser defenestrada por referentes de las inversiones como el multimillonario Warren Buffett, que la calificó de \"burbuja\", a ensalzada por otros como el empresario más rico del mundo, Elon Musk, quien esta semana compró US$1500 millones en bitcoins y disparó la cotización al récord de US$44.220.\n\nEn otros términos: meterse en esta inversión no es para cualquiera y hay varios consejos que se deberían tener en cuenta si se decide hacerlo.",
+      "urlImgOpcionalNoticia": "https://bucket3.glanacion.com/anexos/fotos/67/3523067w740.jpg",
+      "categoriaNoticia": "economia",
+      "fechaNoticia": "20/02/2021",
+      "autorNoticia": "Maria  Granara",
+      "tipoNoticia": "destacada",
+      "id": 20
+    },
+    {
+      "volantaNoticia": "comer helado",
+      "tituloPrincipalNoticia": "madukita",
+      "copeteNoticia": "jgjghlhkjjkltjkñljkkñkrñrgk khñrlkñl krñtykr kyñky kkgkjd ejfkgkgkhlh dldlkgkkdjsja hnfkdkdnsnr fklhloyjjd d",
+      "urlImgPrincipalNoticia": "https://img.lagaceta.com.ar/fotos/notas/2021/02/22/covid19-argentina-sumo-163-muertes-5417-nuevos-casos-ultimas-24-horas-881558-173711.jpg",
+      "cuerpoNoticia": "kkkkkkkkkkkkkkk lllllllllllll\npppppppppppppppp ooooooooooooooo iiiiiiiiiiiii\neeemememem \nkhhkhkhk mmamamaamamam tklfldd   rkrkd sksksskskskeerererrr\nhkfk ,kmbmg khkgg koilikoom",
+      "urlImgOpcionalNoticia": "https://img.lagaceta.com.ar/fotos/notas/2021/02/22/covid19-argentina-sumo-163-muertes-5417-nuevos-casos-ultimas-24-horas-881558-173711.jpg",
+      "categoriaNoticia": "espectaculos",
+      "fechaNoticia": "24/02/2021",
+      "autorNoticia": "madukita",
+      "tipoNoticia": "secundaria",
+      "id": 21
+    }
+  ]
+}
