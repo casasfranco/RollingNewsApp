@@ -13,6 +13,7 @@ import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import auth from './auth'
+import Clima from './Clima';
 
 const Navegacion = () => {
   const [show, setShow] = useState(false);
@@ -126,6 +127,8 @@ const Navegacion = () => {
         expand="lg"
         className="d-flex justify-content-between align-items-center"
       >
+        <Clima></Clima>
+
         <Image id="img-barra" src= "./imagenes/rolling-3.jpg"></Image>
 
         <Nav className="text-center">
