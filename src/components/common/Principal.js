@@ -36,38 +36,38 @@ const Principal = () => {
     let banderaSinDestacar = 0;
 
     return noticiasAPI.map((noticia, index) => {
-      if (noticia.estadoNoticia && noticia.destacada) {
-        //Multiplo de 4 Muestro destacada
-        const noticiaHtml = (
-          <>
-            <div className="col-sm-12 col-md-12 col-xl-12 ">
-              <NoticiaDestacada
-                noticia={noticia}
-                key={noticia._id}
-              ></NoticiaDestacada>
+      if (noticia.publicadaNoticia) {
+        if (noticia.destacada) {
+          //Multiplo de 4 Muestro destacada
+          const noticiaHtml = (
+            <>
+              <div className="col-sm-12 col-md-12 col-xl-12 ">
+                <NoticiaDestacada
+                  noticia={noticia}
+                  key={noticia._id}
+                ></NoticiaDestacada>
+              </div>
+            </>
+          );
+          listaDestacadas.push(noticiaHtml);
+        } else {
+          const noticiaHtml = (
+            <div className="col-sm-12 col-md-6 col-xl-4">
+              <Secundaria noticia={noticia} key={noticia._id}></Secundaria>
             </div>
-          </>
-        );
-        listaDestacadas.push(noticiaHtml);
-      } else {
-        const noticiaHtml = (
-          <div className="col-sm-12 col-md-6 col-xl-4">
-            <Secundaria noticia={noticia} key={noticia._id}></Secundaria>
-          </div>
-        );
-        listaSinDestacadas.push(noticiaHtml);
+          );
+          listaSinDestacadas.push(noticiaHtml);
+        }
       }
 
       if (index === noticiasAPI.length - 1) {
         let arrayFinal = [];
         noticiasAPI.forEach((noticia, idx) => {
-          console.log(idx);
-          if(idx === 0) {
+          if (idx === 0) {
             arrayFinal.push(listaDestacadas[banderaDestacadas]);
             banderaDestacadas++;
-          } else if (idx % 5 === 0 && ((idx/5) < listaDestacadas.length)) {
-            console.log('Indice: ' +idx);
-            arrayFinal.splice(idx+1, 0, listaDestacadas[banderaDestacadas]);
+          } else if (idx % 5 === 0 && idx / 5 < listaDestacadas.length) {
+            arrayFinal.splice(idx + 1, 0, listaDestacadas[banderaDestacadas]);
             banderaDestacadas++;
 
             const htmlComercial = (
@@ -75,18 +75,21 @@ const Principal = () => {
                 <Comercial key={index}></Comercial>
               </div>
             );
-            arrayFinal.splice(idx+2, 0, htmlComercial);
-
+            arrayFinal.splice(idx + 2, 0, htmlComercial);
           } else {
-            console.log(noticia);
-            arrayFinal.splice(idx+1, 0, listaSinDestacadas[banderaSinDestacar]);
-            banderaSinDestacar++
+            arrayFinal.splice(
+              idx + 1,
+              0,
+              listaSinDestacadas[banderaSinDestacar]
+            );
+            banderaSinDestacar++;
           }
         });
         return arrayFinal;
       }
-      return "";
+      
     });
+    //ya termino map
   }
 
   return (
