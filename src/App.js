@@ -43,6 +43,8 @@ function App() {
           )}
         ></Route>
 
+        <Principal></Principal>
+
         <Footer></Footer>
       </Router>
     </div>

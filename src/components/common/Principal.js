@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Varias from "./Varias";
 import Secundaria from "./Secundaria";
 
@@ -7,7 +7,91 @@ import NoticiaDestacada from "./NoticiaDestacada";
 import Banner from "./Banner";
 import Comercial from "./Comercial";
 
-const Nueva = () => {
+import { News } from "../../services/api/news/news";
+
+const Principal = () => {
+  const [noticiasAPI, setNoticiasAPI] = useState([]);
+  const [recargarNoticias, setRecargarNoticias] = useState(true);
+  const [noticiasOrdenadas, setNoticiasOrdenadas] = useState([]);
+
+  const newsService = new News();
+
+  useEffect(() => {
+    if (recargarNoticias) {
+      requestApiNews();
+      setRecargarNoticias(false);
+    }
+  }, [recargarNoticias]);
+
+  const requestApiNews = async () => {
+    let newsApi = await newsService.getAllNews();
+    console.log(newsApi);
+    setNoticiasAPI(newsApi);
+  };
+
+  function typeOfNotice() {
+    let listaDestacadas = [];
+    let listaSinDestacadas = [];
+    let banderaDestacadas = 0;
+    let banderaSinDestacar = 0;
+
+    return noticiasAPI.map((noticia, index) => {
+      if (noticia.publicadaNoticia) {
+        if (noticia.destacada) {
+          //Multiplo de 4 Muestro destacada
+          const noticiaHtml = (
+            <>
+              <div className="col-sm-12 col-md-12 col-xl-12 ">
+                <NoticiaDestacada
+                  noticia={noticia}
+                  key={noticia._id}
+                ></NoticiaDestacada>
+              </div>
+            </>
+          );
+          listaDestacadas.push(noticiaHtml);
+        } else {
+          const noticiaHtml = (
+            <div className="col-sm-12 col-md-6 col-xl-4">
+              <Secundaria noticia={noticia} key={noticia._id}></Secundaria>
+            </div>
+          );
+          listaSinDestacadas.push(noticiaHtml);
+        }
+      }
+
+      if (index === noticiasAPI.length - 1) {
+        let arrayFinal = [];
+        noticiasAPI.forEach((noticia, idx) => {
+          if (idx === 0) {
+            arrayFinal.push(listaDestacadas[banderaDestacadas]);
+            banderaDestacadas++;
+          } else if (idx % 5 === 0 && idx / 5 < listaDestacadas.length) {
+            arrayFinal.splice(idx + 1, 0, listaDestacadas[banderaDestacadas]);
+            banderaDestacadas++;
+
+            const htmlComercial = (
+              <div className="col-sm-12 col-md-12 col-xl-12">
+                <Comercial key={index}></Comercial>
+              </div>
+            );
+            arrayFinal.splice(idx + 2, 0, htmlComercial);
+          } else {
+            arrayFinal.splice(
+              idx + 1,
+              0,
+              listaSinDestacadas[banderaSinDestacar]
+            );
+            banderaSinDestacar++;
+          }
+        });
+        return arrayFinal;
+      }
+      
+    });
+    //ya termino map
+  }
+
   return (
     <div>
       <div className="container">
@@ -15,41 +99,13 @@ const Nueva = () => {
           {/* Cards */}
           <div className="col-sm-10 col-md-8 col-xl-8">
             <div className="row">
-              <div className="col-sm-12 col-md-6 col-xl-8 ">
-                <NoticiaDestacada></NoticiaDestacada>
-              </div>
-              <div className="col-sm-12 col-md-6 col-xl-4">
-                <Secundaria></Secundaria>
-              </div>
-              <div className="col-sm-12 col-md-6 col-xl-4">
-                <Secundaria></Secundaria>
-              </div>
-              <div className="col-sm-12 col-md-6 col-xl-4">
-                <Secundaria></Secundaria>
-              </div>
-              <div className="col-sm-12 col-md-6 col-xl-4">
-                <Secundaria></Secundaria>
-              </div>
-              <div className="col-sm-12 col-md-12 col-xl-12 ">
-                <NoticiaDestacada></NoticiaDestacada>
-              </div>
-
-              <div className="col-sm-12 col-md-12 col-xl-12">
-                <Comercial></Comercial>
-              </div>
-
-              <div className="col-sm-12 col-md-6 col-xl-4">
-                <Secundaria></Secundaria>
-              </div>
-
-              <div className="col-sm-12 col-md-6 col-xl-4">
-                <Publicidad></Publicidad>
-              </div>
-
-              <div className="col-sm-12 col-md-6 col-xl-4">
-                <Secundaria></Secundaria>
-              </div>
-
+              {noticiasAPI.length > 0 ? (
+                typeOfNotice()
+              ) : (
+                <div>
+                  <h1 className="display-3">No hay noticias</h1>
+                </div>
+              )}
               <div className="col-sm-12 col-md-12 col-xl-12">
                 <Banner></Banner>
               </div>
@@ -65,4 +121,4 @@ const Nueva = () => {
   );
 };
 
-export default Nueva;
+export default Principal;
