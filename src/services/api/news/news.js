@@ -12,7 +12,7 @@ export class News {
     return axios
       .get(urlController, {
         headers: {
-          token: localStorage.getItem("token") || WSData.token,
+          token: localStorage.getItem('token'),
         },
       })
       .then((res) => {
