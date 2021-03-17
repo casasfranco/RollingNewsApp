@@ -8,6 +8,7 @@ import Navegacion from "./components/common/Navegacion";
 import Categoria from "./components/common/Administrador/Categorias/Categoria";
 import FormCat from "./components/common/Administrador/Categorias/FormCat";
 import Bienvenida from "./components/common/Administrador/Admin/Bienvenida";
+import Registro from "./components/common/Administrador/Usuario/Registro";
 function App() {
   return (
     <div>
@@ -44,6 +45,8 @@ function App() {
         ></Route>
 
         <Principal></Principal>
+        <Registro></Registro>
+
 
         <Footer></Footer>
       </Router>
