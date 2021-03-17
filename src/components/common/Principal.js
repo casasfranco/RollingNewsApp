@@ -87,17 +87,16 @@ const Principal = () => {
         });
         return arrayFinal;
       }
-      
     });
     //ya termino map
   }
 
   return (
-    <div>
-      <div className="container">
-        <div className="row justify-content-between ">
-          {/* Cards */}
-          <div className="col-sm-10 col-md-8 col-xl-8">
+    <div className="container-fluid">
+      <div className="row justify-content-around">
+        {/* Cards */}
+        <div className="col-sm-12 col-md-8 col-xl-7">
+          <div className="d-flex justify-content-center">
             <div className="row">
               {noticiasAPI.length > 0 ? (
                 typeOfNotice()
@@ -111,10 +110,10 @@ const Principal = () => {
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="col-sm-12 col-md-4 col-xl-4 mb-4">
-            <Varias></Varias>
-          </div>
+        <div className="col-sm-12 col-md-4 col-xl-4 mb-4">
+          <Varias></Varias>
         </div>
       </div>
     </div>
