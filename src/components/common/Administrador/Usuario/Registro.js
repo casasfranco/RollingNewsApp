@@ -49,11 +49,11 @@ const Registro = () => {
                   message: "Ingrese su nombre",
                 },
                 maxLength: {
-                  value: true,
+                  value: 15,
                   message: "No más de 15 caracteres",
                 },
                 minLength: {
-                  value: true,
+                  value: 4,
                   message: "Minimo aceptado 4 caracteres",
                 },
                 pattern: {
@@ -63,7 +63,7 @@ const Registro = () => {
               })}
             />
             <span id="errorNombre" className="text-danger mb-2">
-              {errors?.nombreCategoria?.message}
+              {errors?.nombre?.message}
             </span>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
@@ -73,22 +73,29 @@ const Registro = () => {
             <Form.Control
               type="text"
               placeholder="Fulanito"
-              name="nombre"
+              name="apellido"
               ref={register({
                 required: {
                   value: true,
                   message: "Ingrese su apellido",
                 },
                 maxLength: {
-                  value: true,
+                  value: 15,
                   message: "No más de 15 caracteres",
                 },
                 minLength: {
-                  value: true,
+                  value: 4,
                   message: "Minimo aceptado 4 caracteres",
+                },
+                pattern: {
+                  value: /^[A-Za-z\s]+$/,
+                  message: "Complete correctamente el campo",
                 },
               })}
             />
+            <span id="errorApellido" className="text-danger mb-2">
+              {errors?.apellido?.message}
+            </span>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>
@@ -97,22 +104,25 @@ const Registro = () => {
             <Form.Control
               type="text"
               placeholder="1linkFullMega"
-              name="apellido"
+              name="usuarioNombre"
               ref={register({
                 required: {
                   value: true,
-                  message: "Ingrese su apellido",
+                  message: "Elija un nombre de usuario",
                 },
                 maxLength: {
-                  value: true,
+                  value: 15,
                   message: "No más de 15 caracteres",
                 },
                 minLength: {
-                  value: true,
+                  value: 4,
                   message: "Minimo aceptado 4 caracteres",
                 },
               })}
             />
+            <span id="errorUsuarioNombre" className="text-danger mb-2">
+              {errors?.usuarioNombre?.message}
+            </span>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>
@@ -128,15 +138,18 @@ const Registro = () => {
                   message: "Ingrese una contraseña",
                 },
                 maxLength: {
-                  value: true,
+                  value: 15,
                   message: "No más de 15 caracteres",
                 },
                 minLength: {
-                  value: true,
+                  value: 8,
                   message: "Minimo aceptado 8 caracteres",
                 },
               })}
             />
+            <span id="errorPass" className="text-danger mb-2">
+              {errors?.pass?.message}
+            </span>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>
@@ -152,15 +165,22 @@ const Registro = () => {
                   message: "Ingrese su correo electrónico",
                 },
                 maxLength: {
-                  value: true,
+                  value: 30,
                   message: "No más de 30 caracteres",
                 },
                 minLength: {
-                  value: true,
+                  value: 15,
                   message: "Minimo aceptado 15 caracteres",
+                },
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Complete correctamente el campo",
                 },
               })}
             />
+            <span id="errorEmail" className="text-danger mb-2">
+              {errors?.email?.message}
+            </span>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>
@@ -176,15 +196,22 @@ const Registro = () => {
                   message: "Ingrese una direccion",
                 },
                 maxLength: {
-                  value: true,
+                  value: 15,
                   message: "No más de 15 caracteres",
                 },
                 minLength: {
-                  value: true,
+                  value: 10,
                   message: "Minimo aceptado 10 caracteres",
+                },
+                pattern: {
+                  value: /^[a-z, A-Z o 0-9\s]+$/,
+                  message: "Complete correctamente el campo",
                 },
               })}
             />
+             <span id="errorDireccion" className="text-danger mb-2">
+              {errors?.direccion?.message}
+            </span>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>
@@ -200,15 +227,22 @@ const Registro = () => {
                   message: "Ingrese una localidad",
                 },
                 maxLength: {
-                  value: true,
+                  value: 15,
                   message: "No más de 15 caracteres",
                 },
                 minLength: {
-                  value: true,
+                  value: 8,
                   message: "Minimo aceptado 8 caracteres",
+                },
+                pattern: {
+                  value: /^[A-Za-z\s]+$/,
+                  message: "Complete correctamente el campo",
                 },
               })}
             />
+             <span id="errorLocalidad" className="text-danger mb-2">
+              {errors?.localidad?.message}
+            </span>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>
@@ -224,15 +258,22 @@ const Registro = () => {
                   message: "Ingrese su código postal",
                 },
                 maxLength: {
-                  value: true,
+                  value: 8,
                   message: "No más de 8 caracteres",
                 },
                 minLength: {
-                  value: true,
+                  value: 4,
                   message: "Minimo aceptado 4 caracteres",
+                },
+                pattern: {
+                  value: /^[0-9]+$/i,
+                  message: "Complete correctamente el campo",
                 },
               })}
             />
+             <span id="errorCp" className="text-danger mb-2">
+              {errors?.cp?.message}
+            </span>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>
@@ -248,15 +289,22 @@ const Registro = () => {
                   message: "Ingrese un telefono",
                 },
                 maxLength: {
-                  value: true,
+                  value: 15,
                   message: "No más de 15 caracteres",
                 },
                 minLength: {
-                  value: true,
+                  value: 10,
                   message: "Minimo aceptado 10 caracteres",
+                },
+                pattern: {
+                  value: /^[0-9]+$/i ,
+                  message: "Complete correctamente el campo",
                 },
               })}
             />
+             <span id="errorTelefono" className="text-danger mb-2">
+              {errors?.telefono?.message}
+            </span>
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Confirmar datos" />
