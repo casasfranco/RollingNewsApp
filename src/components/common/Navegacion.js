@@ -12,7 +12,7 @@ import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 //import logo from "./imagenes/rolling-2.jpg"; // relative path to image
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import auth from './auth'
+import { Auth } from "../../services/api/auth/auth";
 
 const Navegacion = () => {
   const [show, setShow] = useState(false);
@@ -21,53 +21,33 @@ const Navegacion = () => {
   const { register, errors, handleSubmit } = useForm();
   const [recargarBotones, setRecargarBotones] = useState(false);
 
+  const authService = new Auth();
+
   const onSubmit = async (data, e) => {
     //Login de los datos validados.
-
     const usuario = {
       nombreUsuario: data.nombreUsuario,
       passUsuario: data.passUsuario,
     };
-    try {
-      const cabecera = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(usuario),
-      };
 
-      const resultado = await fetch(
-        "https://rolling-news-servidor.herokuapp.com/api/autenticar/",
-        cabecera
-      )
-        .then(function (response) {
-          return response.json();
-        })
-        .then((response) => {
-          if (response.ok) {
-            
-            auth.login(() => {
-              localStorage.setItem("token", response.token);
-            })
-            Swal.fire(
-              "Bienvenido!!!",
-              "Iniciaste sesion correctamente",
-              "success"
-            );
-            handleClose();
-            // console.log(resultado.body);
-          } else {
-            Swal.fire(
-              "Opss!!!",
-              "Contraseña o nomnbre de usuario incorrectos",
-              "error"
-            );
-          }
-        });
+    try {
+      const resultado = await authService.login(usuario);
+      console.log(resultado);
+      if (resultado.ok) {
+        localStorage.setItem('token', resultado.token)
+        Swal.fire("Bienvenido!!!", resultado.mensaje, "success");
+        handleClose();
+      } else {
+        Swal.fire(
+          "Opss!!!",
+          resultado.mensaje,
+          "error"
+        );
+      }
     } catch (error) {
       console.log(error);
     }
+
     e.target.reset();
     // $(document.getElementById("loginModal")).hide();
   };
@@ -126,11 +106,11 @@ const Navegacion = () => {
         expand="lg"
         className="d-flex justify-content-between align-items-center"
       >
-        <Image id="img-barra" src= "./imagenes/rolling-3.jpg"></Image>
+        <Image id="img-barra" src="./imagenes/rolling-3.jpg"></Image>
 
         <Nav className="text-center">
           <Admin isLoggedIn={localStorage.getItem("token")} />
-          
+
           <Modal
             show={show}
             onHide={handleClose}
@@ -143,7 +123,7 @@ const Navegacion = () => {
               <Image
                 className="d-flex justify-content-center"
                 id="logo-login"
-               src="./imagenes/rolling-3.jpg"
+                src="./imagenes/rolling-3.jpg"
               ></Image>
             </Modal.Header>
             <Modal.Body>
@@ -237,7 +217,7 @@ const Navegacion = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="navbar-nav" className="justify-content-center">
           <Nav className="mx-2">
-          <Nav.Link className="h5">Inicio</Nav.Link>
+            <Nav.Link className="h5">Inicio</Nav.Link>
             <Nav.Link href="#home">Actualidad</Nav.Link>
             <Nav.Link href="#features">Espectáculos</Nav.Link>
             <Nav.Link href="#pricing">Tecnología</Nav.Link>
