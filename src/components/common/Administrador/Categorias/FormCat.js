@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
 const FormCat = () => {
-  const { register, errors, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data, e) => {
     console.log("anda perro");

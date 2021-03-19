@@ -3,9 +3,24 @@ import { Container, Jumbotron } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { useLocation } from "react-router-dom";
 
-const Registro = () => {
-  const { register, errors, handleSubmit } = useForm();
+
+
+const Registro = (props) => {
+  let editar = false;
+  const location = useLocation();
+  let usuario;
+
+  if (location.state !== undefined) {
+    usuario = location.state.usuario;
+    editar = true;
+  }
+
+  const { register, handleSubmit, errors } = useForm({
+    defaultValues: usuario,
+  });
 
   const onSubmit = async (data, e) => {
     console.log("a  verrr si funciona");
@@ -23,7 +38,7 @@ const Registro = () => {
       estadoUsuario: false,
     };
 
-    /*if (editar) {
+    if (editar) {
       try {
         const cabecera = {
           method: "PUT",
@@ -76,7 +91,7 @@ const Registro = () => {
         console.log(error);
       }
     }
-    e.target.reset();*/
+    e.target.reset();
   };
 
 
