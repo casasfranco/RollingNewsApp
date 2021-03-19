@@ -327,7 +327,7 @@ const EditarUser = () => {
             </span>
           </Form.Group>
           <Button variant="danger" type="submit">
-            Registrar
+            Actualizar
           </Button>
         </Form>
       </Container>
