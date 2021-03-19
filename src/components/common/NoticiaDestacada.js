@@ -3,22 +3,21 @@ import Card from "react-bootstrap/esm/Card";
 
 
 
-const Destacada = () => {
+const Destacada = (props) => {
+  // console.log(props);
   return (
     <div>
       <Card className=" tarjeta p-0 mt-1  w-100 ">
         <Card.Img
           className="mt-0 w-100"
-          src="https://picsum.photos/300/150?random"
+          src={props.noticia.urlImgPrincipalNoticia}
         ></Card.Img>
         <Card.Body className="contenido">
-          <p id="tituloDestacada" className="m-0">Titulo</p>
+          <p id="tituloDestacada" className="m-0">{props.noticia.tituloPrincipalNoticia}</p>
 
           <p id="copeteDestacada">
             <a className="text-dark" href="#">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam magnam dignissimos, iure obcaecati perspiciatis beatae,
-              fuga, quam soluta dolores sint ipsa quasi
+            {props.noticia.copeteNoticia}
             </a>
           </p>
         </Card.Body>
