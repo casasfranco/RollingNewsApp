@@ -108,3 +108,12 @@
     height: auto;
     max-width: 75%;
   }
+
+
+  /*    Administración      */
+
+  .btn-admin {
+    min-width: 350px;
+    min-height: 80px;
+    font-size: 30px !important ; 
+  }
