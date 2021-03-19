@@ -10,6 +10,8 @@ import NuevaNoticia from "./components/administrador/noticias/NuevaNoticia";
 import EditarNoticia from "./components/administrador/noticias/EditarNoticia";
 
 import Administracion from "./components/administracion/Administracion";
+import Noticia from "./components/administracion/noticia/Noticia";
+import Noticias from "./components/administracion/noticia/Noticias";
 function App() {
   const [noticiasAPI, setNoticiasAPI] = useState([]);
 
@@ -46,6 +48,9 @@ function App() {
           </Route>
           <Route exact path="/admin">
             <Administracion></Administracion>
+          </Route>
+          <Route exact path="/admin/noticias">
+            <Noticias></Noticias>
           </Route>
         </Switch>
 

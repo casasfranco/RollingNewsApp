@@ -63,9 +63,9 @@ const Administracion = () => {
         <h1>Adminsitracion funcionando </h1>
         <section className="row justify-content-around">
           {" "}
-          <Link to="/admin/peliculas">
+          <Link to="/admin/noticias">
             <Button variant="secondary" className="btn-admin my-4">
-              Administrar peliculas
+              Administrar noticias
             </Button>{" "}
           </Link>
           <Link to="/admin/usuarios">
