@@ -22,7 +22,63 @@ const Registro = () => {
       perfilUsuario: "publico",
       estadoUsuario: false,
     };
+
+    /*if (editar) {
+      try {
+        const cabecera = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            token: localStorage.getItem("token"),
+          },
+          body: JSON.stringify(usuario),
+        };
+
+        const resultado = await fetch(
+          `https://rolling-news-servidor.herokuapp.com/api/usuario/${props.idUsuario}`,
+          cabecera
+        );
+        //Comprobar respuesta
+        if (resultado.status === 200) {
+          Swal.fire(
+            "¡Usuario actualizado con exito!",
+            "Los datos del usuario fueron actualizados",
+            "Success"
+          );
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        const cabecera = {
+          method: "POST",
+          headers: {
+            "Content-Type": "applicatuion/json",
+            token: localStorage.getItem("token"),
+          },
+          body: JSON.stringify(usuario),
+        };
+
+        const resultado = await fetch(
+          "https://rolling-news-servidor.herokuapp.com/api/usuario/",
+          cabecera
+        );
+        //comprobar respuesta
+        if (resultado.status === 200) {
+          Swal.fire(
+            "¡Gracias!",
+            "Sus datos fueron enviados y pronto nos contactaremos",
+            "success"
+          );
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    e.target.reset();*/
   };
+
 
   return (
     <div>
@@ -267,7 +323,7 @@ const Registro = () => {
                 },
                 pattern: {
                   value: /^[0-9]+$/i,
-                  message: "Complete correctamente el campo",
+                  message: "Solo se aceptan numeros",
                 },
               })}
             />
@@ -298,16 +354,13 @@ const Registro = () => {
                 },
                 pattern: {
                   value: /^[0-9]+$/i ,
-                  message: "Complete correctamente el campo",
+                  message: "Solo se aceptan numeros",
                 },
               })}
             />
              <span id="errorTelefono" className="text-danger mb-2">
               {errors?.telefono?.message}
             </span>
-          </Form.Group>
-          <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Confirmar datos" />
           </Form.Group>
           <Button variant="danger" type="submit">
             Registrar

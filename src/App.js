@@ -44,9 +44,17 @@ function App() {
           )}
         ></Route>
 
-        <Principal></Principal>
-        <Registro></Registro>
+        <Route
+          exact
+          path="/suscripcion"
+          render={() => (
+            <div>
+              <Registro></Registro>
+            </div>
+          )}
+        ></Route>
 
+        <Principal></Principal>
 
         <Footer></Footer>
       </Router>

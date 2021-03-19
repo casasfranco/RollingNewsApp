@@ -34,15 +34,11 @@ const Navegacion = () => {
       const resultado = await authService.login(usuario);
       console.log(resultado);
       if (resultado.ok) {
-        localStorage.setItem('token', resultado.token)
+        localStorage.setItem("token", resultado.token);
         Swal.fire("Bienvenido!!!", resultado.mensaje, "success");
         handleClose();
       } else {
-        Swal.fire(
-          "Opss!!!",
-          resultado.mensaje,
-          "error"
-        );
+        Swal.fire("Opss!!!", resultado.mensaje, "error");
       }
     } catch (error) {
       console.log(error);
@@ -78,9 +74,11 @@ const Navegacion = () => {
         <Button className="mx-2 shadow" variant="dark" onClick={handleShow}>
           Ingresar
         </Button>
-        <Button className="mx-2 shadow" size="sm" variant="outline-dark">
-          Suscribirme
-        </Button>
+        <Link to="/suscripcion">
+          <Button className="mx-2 shadow" size="sm" variant="outline-dark">
+            Suscribirme
+          </Button>
+        </Link>
       </Fragment>
     );
   }
