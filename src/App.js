@@ -9,6 +9,8 @@ import Categoria from "./components/common/Administrador/Categorias/Categoria";
 import FormCat from "./components/common/Administrador/Categorias/FormCat";
 import Bienvenida from "./components/common/Administrador/Admin/Bienvenida";
 import Registro from "./components/common/Administrador/Usuario/Registro";
+import TablaUser from "./components/common/Administrador/Usuario/TablaUser";
+import User from "./components/common/Administrador/Usuario/User";
 function App() {
   return (
     <div>
@@ -55,6 +57,10 @@ function App() {
         ></Route>
 
         <Principal></Principal>
+
+        <User></User>
+        
+        
 
         <Footer></Footer>
       </Router>
